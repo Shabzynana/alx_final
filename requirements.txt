@@ -3,7 +3,7 @@ beautifulsoup4==4.12.0
 crispy-bootstrap4==2022.1
 deprecation==2.1.0
 dj-database-url==1.2.0
-Django==3.2.18
+Django==4.1.2
 django-bootstrap-datepicker-plus==5.0.3
 django-bootstrap4==22.3
 django-crispy-forms==2.0
