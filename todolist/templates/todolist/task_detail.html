@@ -1,0 +1,35 @@
+
+
+{% extends "user/base.html" %}
+{% block content %}
+  <article class="media content-section">
+    <div class="media-body">
+
+      <div class="jumbotron">
+        <div class="article-metadata">
+          <a class="mr-2" href="{% url 'profile' user.username %}">{{ object.user_id }}</a>
+            {% if object.user_id == user %}
+              <a href="{% url 'task_update' task.id %}">
+                <button class="border-0 btn-transition btn btn-outline-success">
+                  <i class="fa fa-edit">
+                  </i>
+                </button>
+              </a>
+              <a href="{% url 'task_delete' task.id %}">
+                <button type="button" class="border-0 btn-transition btn btn-outline-danger" data-toggle="modal" data-target="#exampleModalLong">
+                  <i class="fa fa-trash">
+                  </i>
+                </button>
+              </a>
+            {% endif %}
+        </div>
+        <h2 class="article-title">Tile: {{ object.title }}</h2>
+        <p class="article-content">Content: {{ object.content }}</p>
+        <p class="article-content">Start_Date: {{ object.start_date|date:"F d, Y" }}</p>
+        <p class="article-content">End_Date: {{ object.end_date|date:"F d, Y" }}</p>
+
+
+      </div>
+    </div>
+  </article>
+{% endblock content %}

@@ -1,0 +1,36 @@
+
+{% extends "user/base.html" %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style media="screen">
+    {% block head_css_site %}
+    {{ block.super }}
+    @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600,400italic);
+    @import url(http://fonts.googleapis.com/css?family=Oswald:300,400,700);
+    @import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow);
+    @media only screen and (min-height:550px){.main{height:100vh!important}}body{margin:0}.main{margin: auto;}
+    </style>
+    {% endblock head_css_site %}
+
+    <title>{% block title %}Home{% endblock %}</title>
+  </head>
+  <body>
+    {% block content %}
+
+    <div class="main">
+      <div class="container">
+            <div class="intro-text">
+                <h1>Welcome To <span>Neves</span></h1>
+                <p>Neves is app that helps you keep up</br> with your tasks.</p>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+
+
+  </body>
+</html>

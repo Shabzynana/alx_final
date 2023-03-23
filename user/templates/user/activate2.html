@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% autoescape off %}
+    Hi User,
+
+    Please click on the link below to confirm your registration:
+
+    http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+    {% endautoescape %}
+  </body>
+</html>

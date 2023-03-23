@@ -1,0 +1,110 @@
+
+{% extends "user/base.html" %}
+{% block content %}
+
+          <div class="container center">
+            <div class="col-md-8">
+              <div class="card-hover-shadow-2x mb-3 card def">
+                <div class="card-header-tab card-header">
+                  <div class="card-header-title font-size-lg text-capitalize font-weight-normal">
+                    <i class="fa fa-tasks"></i>&nbsp;Task List
+                  </div>
+                </div>
+                <div class="scroll-area-sm deff scrollmenu">
+                  <perfect-scrollbar class="ps-show-limits">
+                    <div class="ps ps--active-y">
+                      <div class="ps-content">
+
+                        <!-- LOOP FOR TOdo PER USER -->
+                        {% for task in page_task %}
+
+                        <ul class=" list-group list-group-flush">
+
+                          <li class="list-group-item">
+                            <div class="todo-indicator bg-warning"></div>
+                            <div class="widget-content p-0">
+                              <div class="widget-content-wrapper defff">
+                                <div class="widget-content-left">
+                                  <div class="widget-heading">Title: {{ task.title }}
+                                  </div>
+                                  <div class="widget-subheading"><i>
+                                    Task: {{ task.content|slice:"0:15"}} 
+                                  </i>
+                                  </div>
+                                  <div class="widget-subheading">Start_Date: {{ task.start_date|date:"F d, Y"  }}</div>
+                                  <div class="widget-subheading">End_Date: {{ task.end_date|date:"F d, Y"  }}</div>
+
+                                </div>
+
+                              <div class="widget-content-right">
+                                <a href="{% url 'task_detail' task.id %}">
+                                  <button class="border-0 btn-transition btn btn-outline-success">
+                                    <i class="fa fa-user">
+                                    </i>
+                                  </button>
+                                </a>
+
+
+                              </div>
+
+                             </div>
+                            </div>
+                          </li>
+
+                        </ul>
+                        {% endfor %}
+
+                        <!-- END OF LOOP -->
+
+                      </div>
+                    </div>
+                  </perfect-scrollbar>
+                </div>
+
+                <!-- FOOTER OF FROM -->
+                <div class="d-block text-right card-footer">
+
+                  <!-- START OF PAGINATION -->
+                  <div class="pagination pag">
+                    {% if page_task.has_previous %}
+                      <a class="btn btn-outline-primary" href="?page={{ page_task.previous_page_number }}">Previous</a>
+                    {% endif %}
+
+                    {% for num in page_task.paginator.page_range %}
+
+                      {% if num %}
+
+                        {% if page_task.number == num %}
+                          <a class="btn btn-primary" href="?page={{ num }}">{{ num }}</a>
+                        {% else %}
+                          <a class="btn btn-outline-primary" href="?page={{ num }}">{{ num }}</a>
+                        {% endif %}
+
+                      {% else %}
+                       ...
+                      {% endif %}
+
+
+                    {% endfor %}
+
+                    {% if page_task.has_next %}
+                      <a class="btn btn-outline-primary" href="?page={{ page_task.next_page_number }}">Next</a>
+                    {% endif %}
+                 </div>
+                 <!-- END OF PAGINATION -->
+
+                 <!-- PAGE NUMBER -->
+
+                 <!-- END -->
+
+                </div>
+                <!-- END OF FOOTER -->
+
+              </div>
+            </div>
+            </div>
+
+
+
+
+{% endblock content %}
