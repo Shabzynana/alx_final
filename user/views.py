@@ -80,9 +80,9 @@ def login_user(request):
 
 
 def signout(request):
-	logout(request)
-	messages.info(request, "You have successfully logged out.")
-	return redirect("index")
+    logout(request)
+    messages.info(request, "You have successfully logged out.")
+    return redirect("index")
 
 def activate(request, uidb64, token):
     try:
