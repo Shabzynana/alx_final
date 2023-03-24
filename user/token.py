@@ -1,4 +1,5 @@
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.shortcuts import render, redirect
 import six
 from functools import wraps
 
@@ -22,13 +23,12 @@ class AccountActivationTokenGeneratorr(PasswordResetTokenGenerator):
 verifyy_token = AccountActivationTokenGeneratorr()
 
 
-
 def check_confirmed(func):
     @wraps(func)
-    def decorated_function(*args, **kwargs):
-        current_user = request.user.id
+    def decorated_function(request, *args, **kwargs):
+        current_user = request.user
         if current_user.confirmed is False:
-            return redirect(url_for('index'))
+            return redirect('unconfirmed')
         return func(*args, **kwargs)
 
     return decorated_function
