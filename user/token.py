@@ -29,6 +29,6 @@ def check_confirmed(func):
         current_user = request.user
         if current_user.confirmed is False:
             return redirect('unconfirmed')
-        return func(*args, **kwargs)
+        return func(request, *args, **kwargs)
 
     return decorated_function
