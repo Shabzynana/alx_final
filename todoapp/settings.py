@@ -164,8 +164,8 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '37856c83ca7adc'
-EMAIL_HOST_PASSWORD = 'bcaae18b457ba8'
+EMAIL_HOST_USER = dj_database_url.parse(os.environ.get("HOST_USER"))
+EMAIL_HOST_PASSWORD = dj_database_url.parse(os.environ.get("HOST_PASS"))
 EMAIL_PORT = '2525'
 
 PASSWORD_RESET_TIMEOUT = 180
