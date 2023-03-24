@@ -12,7 +12,7 @@ from .forms import UserRegisterForm, LoginForm, UserUpdateForm
 from .models import User
 from todolist.models import Task
 from .email import make_email, make_emaill
-from .token import verify_token
+from .token import verify_token, check_confirmed
 
 import datetime
 
@@ -115,12 +115,16 @@ def unconfirmed(request):
         return redirect('index')
     return render(request, 'user/unconfirmed.html')
 
+
+@login_required(login_url='login')
+@check_confirmed
 def profile(request, username):
 
     user = User.objects.filter(username=username).first()
     return render(request, 'user/profile.html',{'user': user})
 
-@login_required
+@login_required(login_url='login')
+@check_confirmed
 def account(request):
     user = request.user
     if request.method == 'POST':
@@ -136,7 +140,8 @@ def account(request):
 
     return render(request, 'user/account.html', {'form':form})
 
-
+@login_required(login_url='login')
+@check_confirmed
 def user_task(request, username):
 
     user = User.objects.filter(username=username).first()
