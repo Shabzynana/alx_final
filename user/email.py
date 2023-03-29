@@ -4,6 +4,8 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes, force_str
 from django.core.mail import EmailMessage
 from django.contrib import messages
+from django.utils.html import strip_tags
+
 
 
 from .token import verify_token, verifyy_token
@@ -19,7 +21,8 @@ def make_email(request, user, to_email):
         'token': verify_token.make_token(user),
         'protocol': 'https' if request.is_secure() else 'http'
     })
-    email = EmailMessage(mail_subject, message, to=[to_email])
+    plain = strip_tags(message)
+    email = EmailMessage(mail_subject, plain, to=[to_email])
     if email.send():
         messages.success(request, f'Dear {user.username}, please go to you email {to_email} inbox and click on \
             received activation link to confirm and complete the registration.')
@@ -37,7 +40,8 @@ def make_emaill(request, user, to_email):
         'token': verifyy_token.make_token(get_user),
         'protocol': 'https' if request.is_secure() else 'http'
     })
-    email = EmailMessage(mail_subject, message, to=[to_email])
+    plain = strip_tags(message)
+    email = EmailMessage(mail_subject, plain, to=[to_email])
     if email.send():
         messages.success(request, f'Dear {get_user.username}, please go to you email {to_email} inbox and click on \
             received activation link to confirm and complete the registration.')
