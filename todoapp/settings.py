@@ -158,9 +158,9 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.mail.yahoo.com'
-EMAIL_HOST_USER = 'horlarmihleykan10@yahoo.com'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
 EMAIL_PORT = 587
 
 PASSWORD_RESET_TIMEOUT = 300
