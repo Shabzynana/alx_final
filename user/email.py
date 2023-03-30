@@ -43,7 +43,7 @@ def make_emaill(request, user, to_email):
         'protocol': 'https' if request.is_secure() else 'http'
     })
 #     plain = strip_tags(message)
-    email = EmailMessage(mail_subject, plain, to=[to_email])
+    email = EmailMessage(mail_subject, message, to=[to_email])
     email.content_subtype = 'html'
 
     if email.send():
