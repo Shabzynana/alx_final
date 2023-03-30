@@ -3,18 +3,40 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <style>
+    p{padding:5px;text-align:center}.button{background-color:#4caf50;border:none;color:#fff;padding:15px 32px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;margin:4px 2px;cursor:pointer}
+    </style>
   </head>
   <body>
-    {% autoescape off %}
-    Hi User,
 
-    Please click on the link below to confirm your registration:
-    
-    <a href="http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">CLICK</a>
-    
-    or copy this linkx;
-    
-    https://{{ domain }}{% url 'activate' uidb64=uid token=token %}
-    {% endautoescape %}
+    <p>
+
+
+      <p>Hi User,</p>
+      <br>
+      <br>
+      <h1>Please click on the link below to confirm your registration:</h1>      <br>
+      <br>
+      <br>
+      <a class="button" href=
+      "http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">
+      Please activate your account</a>
+      <br>
+      <br>
+      or copy this link:
+      <br>
+      <br>
+      http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+      <br>
+      <br>
+
+
+
+
+    </p>
+
+
+
+
   </body>
 </html>
