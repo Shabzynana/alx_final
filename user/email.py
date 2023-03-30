@@ -21,8 +21,10 @@ def make_email(request, user, to_email):
         'token': verify_token.make_token(user),
         'protocol': 'https' if request.is_secure() else 'http'
     })
-    plain = strip_tags(message)
-    email = EmailMessage(mail_subject, plain, to=[to_email])
+#     plain = strip_tags(message)
+    email = EmailMessage(mail_subject, message, to=[to_email])
+    email.content_subtype = 'html'
+
     if email.send():
         messages.success(request, f'Dear {user.username}, please go to you email {to_email} inbox and click on \
             received activation link to confirm and complete the registration.')
@@ -40,8 +42,10 @@ def make_emaill(request, user, to_email):
         'token': verifyy_token.make_token(get_user),
         'protocol': 'https' if request.is_secure() else 'http'
     })
-    plain = strip_tags(message)
+#     plain = strip_tags(message)
     email = EmailMessage(mail_subject, plain, to=[to_email])
+    email.content_subtype = 'html'
+
     if email.send():
         messages.success(request, f'Dear {get_user.username}, please go to you email {to_email} inbox and click on \
             received activation link to confirm and complete the registration.')
