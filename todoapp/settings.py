@@ -158,10 +158,10 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.elasticemail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST = 'smtp-relay.sendinblue.com'
+EMAIL_HOST_USER = 'horlarmihleykan10@gmail.com'
+EMAIL_HOST_PASSWORD = 'FA9MTktq0GcvRdDH'
 EMAIL_PORT = 2525
-DEFAULT_FROM_EMAIL = 'Shabzynanae@proton.me'
+# DEFAULT_FROM_EMAIL = 'Shabzynanae@proton.me'
 
 PASSWORD_RESET_TIMEOUT = 300
