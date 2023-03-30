@@ -162,6 +162,6 @@ EMAIL_HOST = 'smtp-relay.sendinblue.com'
 EMAIL_HOST_USER = 'horlarmihleykan10@gmail.com'
 EMAIL_HOST_PASSWORD = 'FA9MTktq0GcvRdDH'
 EMAIL_PORT = 2525
-# DEFAULT_FROM_EMAIL = 'Shabzynanae@proton.me'
+DEFAULT_FROM_EMAIL = 'no-reply@neves.onrender.com'
 
 PASSWORD_RESET_TIMEOUT = 300
