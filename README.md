@@ -89,7 +89,6 @@ The Todo App is an advanced web-based application that allows users to manage th
   {% endif %}
 
 
-{% endfor %}
 
 {% if page_task.has_next %}
   <a class="btn btn-outline-primary" href="?page={{ page_task.next_page_number }}">Next</a>
