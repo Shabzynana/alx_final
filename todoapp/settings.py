@@ -32,7 +32,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['neves.onrender.com']
+ALLOWED_HOSTS = ['neves.onrender.com','127.0.0.1']
 
 
 # Application definition
@@ -162,7 +162,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
 EMAIL_HOST_USER = env("EMAIL_HOST")
-EMAIL_HOST_PASSWORD = env("EMAIL_PASS"),
+EMAIL_HOST_PASSWORD = env("EMAIL_PASS")
 EMAIL_PORT = '2525'
 
 
@@ -175,4 +175,4 @@ EMAIL_PORT = '2525'
 # EMAIL_PORT = 2525
 # DEFAULT_FROM_EMAIL = 'no-reply@neves.onrender.com'
 
-PASSWORD_RESET_TIMEOUT = 600
+PASSWORD_RESET_TIMEOUT = 150
