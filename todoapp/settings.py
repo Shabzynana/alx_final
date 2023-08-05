@@ -159,20 +159,20 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = env("EMAIL_HOST")
+EMAIL_HOST_PASSWORD = env("EMAIL_PASS"),
+EMAIL_PORT = '2525'
+
+
+
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp-relay.sendinblue.com'
 # EMAIL_HOST_USER = ''
 # EMAIL_HOST_PASSWORD = ''
-# EMAIL_PORT = '2525'
-
-
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp-relay.sendinblue.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 2525
-DEFAULT_FROM_EMAIL = 'no-reply@neves.onrender.com'
+# EMAIL_PORT = 2525
+# DEFAULT_FROM_EMAIL = 'no-reply@neves.onrender.com'
 
 PASSWORD_RESET_TIMEOUT = 600
