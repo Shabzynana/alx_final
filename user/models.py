@@ -12,8 +12,8 @@ class User(AbstractUser):
     confirmed = models.BooleanField(default=False)
     confirmed_on = models.DateTimeField(null=True)
 
-
-
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
 
 
     def __str__(self):

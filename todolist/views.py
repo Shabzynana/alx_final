@@ -16,7 +16,7 @@ from .models import Task
 #     model = Task
 #     template_name = "todolist/task_list.html"
 
-class TaskListView(LoginRequiredMixin, DetailView):
+class TaskDetailView(LoginRequiredMixin, DetailView):
     model = Task
     template_name = "todolist/task_detail.html"
 

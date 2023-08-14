@@ -12,7 +12,7 @@ from .token import verify_token, verifyy_token
 from .models import User
 
 
-def make_email(request, user, to_email):
+def send_mail(request, user, to_email):
     mail_subject = 'Activate your user account.'
     message = render_to_string('user/activate.html', {
         'user': user.username,
@@ -21,7 +21,6 @@ def make_email(request, user, to_email):
         'token': verify_token.make_token(user),
         'protocol': 'https' if request.is_secure() else 'http'
     })
-#     plain = strip_tags(message)
     email = EmailMessage(mail_subject, message, to=[to_email])
     email.content_subtype = 'html'
 
@@ -31,7 +30,12 @@ def make_email(request, user, to_email):
     else:
         messages.error(request, f'Problem sending confirmation email to {to_email}, check if you typed it correctly.')
 
-def make_emaill(request, user, to_email):
+
+
+##################################    RESEND EMAIL    ############################################
+
+
+def resend_mail(request, user, to_email):
     user_id = request.user.id
     get_user = User.objects.get(id=user_id)
     mail_subject = 'Activate your user account.'
@@ -42,7 +46,6 @@ def make_emaill(request, user, to_email):
         'token': verifyy_token.make_token(get_user),
         'protocol': 'https' if request.is_secure() else 'http'
     })
-#     plain = strip_tags(message)
     email = EmailMessage(mail_subject, message, to=[to_email])
     email.content_subtype = 'html'
 
